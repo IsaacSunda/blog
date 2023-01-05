@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<h1>Avalible Messages</h1>
+<p><a href="{% url 'message_create' %}">Shortcut to create</a></p>
+ 
+{% for message in posts %}
+<h3><a href="{% url 'message_detail' message.pk %}">{{ message.title }}-{{ message.author }}</a></h3>
+
+<p>{{ message.created_at }}</p>
+
+<hr>
+
+{% endfor %}    
+
+
+{% endblock content  %}
+
